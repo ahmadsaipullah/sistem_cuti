@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\profileController;
-use App\Http\Controllers\Admin\{adminController,dashboardController};
+
+use App\Http\Controllers\Admin\{adminController,dashboardController,jenisCutiController};
 
 
 /*
@@ -35,6 +36,7 @@ Route::middleware(['AdminSuper'])->group( function(){
 
 // crud admin
 Route::resource('/admin', adminController::class);
+Route::resource('/jeniscuti', jenisCutiController::class);
 
 
 });

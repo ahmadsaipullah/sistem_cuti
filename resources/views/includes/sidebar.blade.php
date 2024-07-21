@@ -72,6 +72,12 @@
                             <p>Admin</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('jeniscuti.index') }}" class="nav-link @yield('jeniscuti')">
+                            <i class="nav-icon ion ion-clipboard"></i>
+                            <p>Jenis Cuti</p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>
