@@ -1,5 +1,5 @@
 @extends('layouts.template_default')
-@section('title', 'Andira Jasa Semesta')
+@section('title', 'PT UNION FOODS')
 @section('dashboard', 'active ')
 @section('content')
     <div class="content-wrapper">
@@ -80,7 +80,7 @@
 
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-12 mb-4">
-                                <h1 class="text-center text-bold">INFORMASI KP DAN SKRIPSI</h1>
+                                <h1 class="text-center text-bold">DAFTAR PENGAJUAN CUTI KARYAWAN</h1>
                             </div>
 
                 @endif

@@ -60,9 +60,50 @@
                 </li>
                 @if (auth()->user()->level_id == 3)
                     <li class="nav-header">Menu</li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancuti.create') }}" class="nav-link @yield('pengajuancuti')">
+                            <i class="nav-icon ion ion-email"></i>
+                            <p>Pengajuan Cuti</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancutith.create') }}" class="nav-link @yield('pengajuancutith')">
+                            <i class="nav-icon ion ion-email-unread"></i>
+                            <p>Pengajuan Cuti Tahunan</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('status.cuti') }}" class="nav-link @yield('status')">
+                            <i class="nav-icon ion ion-clipboard"></i>
+                            <p>Status Cuti</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('status.cutith') }}" class="nav-link @yield('statuscutith')">
+                            <i class="nav-icon ion ion-clipboard"></i>
+                            <p>Status Cuti Tahunan</p>
+                        </a>
+                    </li>
+
                 @endif
                 @if (auth()->user()->level_id == 2)
                     <li class="nav-header">Menu</li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancuti.index') }}" class="nav-link @yield('pengajuancuti')">
+                            <i class="nav-icon ion ion-email"></i>
+                            <p>Pengajuan Cuti</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancutith.index') }}" class="nav-link @yield('pengajuancutith')">
+                            <i class="nav-icon ion ion-email-unread"></i>
+                            <p>Pengajuan Cuti Tahunan</p>
+                        </a>
+                    </li>
                 @endif
                 @if (auth()->user()->level_id == 1)
                     <li class="nav-header">Admin Super</li>
@@ -76,6 +117,19 @@
                         <a href="{{ route('jeniscuti.index') }}" class="nav-link @yield('jeniscuti')">
                             <i class="nav-icon ion ion-clipboard"></i>
                             <p>Jenis Cuti</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancuti.index') }}" class="nav-link @yield('pengajuancuti')">
+                            <i class="nav-icon ion ion-email"></i>
+                            <p>Pengajuan Cuti</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuancutith.index') }}" class="nav-link @yield('pengajuancutith')">
+                            <i class="nav-icon ion ion-email-unread"></i>
+                            <p>Pengajuan Cuti Tahunan</p>
                         </a>
                     </li>
                 @endif

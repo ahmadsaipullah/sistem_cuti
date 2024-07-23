@@ -59,5 +59,15 @@ class User extends Authenticatable
         return $this->belongsTo(Level::class, 'level_id', 'id');
     }
 
+    public function PengajuanCuti()
+    {
+        return $this->hasMany(PengajuanCuti::class, 'user_id', 'id');
+    }
+
+    public function PengajuanCutiTh()
+    {
+        return $this->hasMany(PengajuanCutiTh::class, 'user_id', 'id');
+    }
+
 
 }

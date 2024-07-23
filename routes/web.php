@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\statusController;
 use App\Http\Controllers\profileController;
-
+use App\Http\Controllers\PengajuanCutiController;
+use App\Http\Controllers\PengajuanCutiThController;
 use App\Http\Controllers\Admin\{adminController,dashboardController,jenisCutiController};
 
 
@@ -38,6 +40,19 @@ Route::middleware(['AdminSuper'])->group( function(){
 Route::resource('/admin', adminController::class);
 Route::resource('/jeniscuti', jenisCutiController::class);
 
+// pengajuan cuti
+Route::get('/pengajuan-cuti', [PengajuanCutiController::class,'index'])->name('pengajuancuti.index');
+Route::post('/approve/{id}', [statusController::class, 'Approve'])->name('approve');
+Route::post('/rejected/{id}', [statusController::class, 'Rejected'])->name('rejected');
+
+// pengajuan cuti tahunan
+Route::get('/pengajuan-cuti-th', [PengajuanCutiThController::class,'index'])->name('pengajuancutith.index');
+Route::post('/approveth/{id}', [statusController::class, 'ApproveTh'])->name('approve.th');
+Route::post('/rejectedth/{id}', [statusController::class, 'RejectedTh'])->name('rejected.th');
+
+
+
+
 
 });
 
@@ -45,7 +60,15 @@ Route::resource('/jeniscuti', jenisCutiController::class);
 
 Route::middleware(['Admin'])->group( function(){
 
+// pengajuan cuti
+Route::get('/pengajuan-cuti', [PengajuanCutiController::class,'index'])->name('pengajuancuti.index');
+Route::post('/approve/{id}', [statusController::class, 'Approve'])->name('approve');
+Route::post('/rejected/{id}', [statusController::class, 'Rejected'])->name('rejected');
 
+// pengajuan cuti tahunan
+Route::get('/pengajuan-cuti-th', [PengajuanCutiThController::class,'index'])->name('pengajuancutith.index');
+Route::post('/approveth/{id}', [statusController::class, 'ApproveTh'])->name('approve.th');
+Route::post('/rejectedth/{id}', [statusController::class, 'RejectedTh'])->name('rejected.th');
 
 
 });
@@ -55,6 +78,14 @@ Route::middleware(['Admin'])->group( function(){
 Route::middleware(['User'])->group( function(){
 
 
+Route::get('/daftar/pengajuan-cuti-th', [PengajuanCutiThController::class,'create'])->name('pengajuancutith.create');
+Route::post('/pengajuan-cuti-th', [PengajuanCutiThController::class,'store'])->name('pengajuancutith.store');
+
+Route::get('/daftar/pengajuan-cuti', [PengajuanCutiController::class,'create'])->name('pengajuancuti.create');
+Route::post('/pengajuan-cuti', [PengajuanCutiController::class,'store'])->name('pengajuancuti.store');
+
+Route::get('/status/cuti-th', [statusController::class, 'statusCutiTh'])->name('status.cutith');
+Route::get('/status/cuti', [statusController::class, 'statusCuti'])->name('status.cuti');
 
 });
 

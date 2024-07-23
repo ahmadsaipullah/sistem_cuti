@@ -18,6 +18,8 @@ class AdminSuperMiddleware
     {
         if (Auth::check() && Auth::user()->level_id == 1) {
             return $next($request);
+        }elseif (Auth::check() && Auth::user()->level_id == 2) {
+            return $next($request);
         }else{
 
             return redirect()->route('error');
