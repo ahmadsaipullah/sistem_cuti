@@ -59,7 +59,7 @@ class adminController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'level_id' => $request->level_id,
-            'cuti_th_sisa' => $request->cuti_th_sisa,
+            // 'cuti_th_sisa' => $request->cuti_th_sisa,
         ];
 
         User::create($data);

@@ -80,7 +80,7 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                id="password" name="password" placeholder="Password" />
+                                id="password" name="password" placeholder="Password" value="{{ old('password', $admin->password) }}" />
                             <small class="form-text text-muted">Leave blank to keep the current password</small>
                             @error('password')
                                 <span class="text-danger">{{ $message }}</span>

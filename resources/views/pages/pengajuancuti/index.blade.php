@@ -28,9 +28,9 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            {{-- <div class="card-header">
-                                <a class="btn btn-primary" href="#"><i class="fa fa-plus"></i> Ajukan Cuti</a>
-                            </div> --}}
+                            <div class="card-header">
+                                <a class="btn btn-danger" href="{{ route('cuti.pdf') }}"><i class="fa fa-file-pdf"></i> Export PDF</a>
+                            </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="Table" class="table table-bordered table-striped">

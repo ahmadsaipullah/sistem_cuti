@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\cetakController;
 use App\Http\Controllers\statusController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\PengajuanCutiController;
@@ -51,6 +52,11 @@ Route::post('/approveth/{id}', [statusController::class, 'ApproveTh'])->name('ap
 Route::post('/rejectedth/{id}', [statusController::class, 'RejectedTh'])->name('rejected.th');
 
 
+//cetak pdf
+Route::get('/export/pdf/cuti', [cetakController::class, 'cuti'])->name('cuti.pdf');
+Route::get('/export/pdf/cuti-th', [cetakController::class, 'cutith'])->name('cutith.pdf');
+
+
 
 
 
@@ -69,6 +75,11 @@ Route::post('/rejected/{id}', [statusController::class, 'Rejected'])->name('reje
 Route::get('/pengajuan-cuti-th', [PengajuanCutiThController::class,'index'])->name('pengajuancutith.index');
 Route::post('/approveth/{id}', [statusController::class, 'ApproveTh'])->name('approve.th');
 Route::post('/rejectedth/{id}', [statusController::class, 'RejectedTh'])->name('rejected.th');
+
+//cetak pdf
+Route::get('/export/pdf/cuti', [cetakController::class, 'cuti'])->name('cuti.pdf');
+Route::get('/export/pdf/cuti-th', [cetakController::class, 'cutith'])->name('cutith.pdf');
+
 
 
 });
