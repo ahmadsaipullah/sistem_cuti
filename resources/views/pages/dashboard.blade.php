@@ -100,6 +100,11 @@
                             <div class="col-md-12 mb-4">
                                 <h1 class="text-center text-bold">DAFTAR PENGAJUAN CUTI KARYAWAN</h1>
                             </div>
+                            {{-- <div class="col-md-12 mb-4">
+                                <div class="text-center">
+                                    <img src="{{ asset('assets/img/logoft.png') }}" alt="logo" >
+                                </div>
+                            </div> --}}
 
                 @endif
                 <!-- /.row (main row) -->

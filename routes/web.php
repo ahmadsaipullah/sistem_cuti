@@ -24,10 +24,12 @@ require __DIR__.'/auth.php';
 
 Route::get('/error-page', [dashboardController::class,'error'])->name('error');
 
+Route::get('/', [cetakController::class, 'home'])->name('home');
+
 Route::group(['middleware' => 'auth', 'PreventBackHistory'], function () {
 
 // dashboard
-Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
 
 // profile
 Route::get('/profile/{encryptedId}/edit' ,[profileController::class, 'index'])->name('profile.index');

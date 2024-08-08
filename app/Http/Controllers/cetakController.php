@@ -21,4 +21,8 @@ class cetakController extends Controller
         $pdf = Pdf::loadView('pages.pengajuancutith.pdf', compact('pengajuancutiths'))->setPaper('a4');;
         return $pdf->download('pengajuancuti.pdf');
     }
+
+    public function home(){
+        return view('home');
+    }
 }
