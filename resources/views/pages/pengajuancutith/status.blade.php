@@ -41,7 +41,7 @@
                                             <th>Tanggal Mulai</th>
                                             <th>Tanggal Selesai</th>
                                             <th>Jumlah Hari</th>
-                                            <th>Sisa Cuti Tahunan</th>
+                                            {{-- <th>Sisa Cuti Tahunan</th> --}}
                                             <th>Status</th>
 
                                         </tr>
@@ -54,7 +54,7 @@
                                                 <td>{{ \Carbon\Carbon::parse($pengajuan->tanggal_mulai)->format('d F Y') }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($pengajuan->tanggal_selesai)->format('d F Y') }}</td>
                                                 <td>{{ $pengajuan->jumlah_hari }}</td>
-                                                <td>{{ $pengajuan->User->cuti_th_sisa }} Hari</td>
+                                                {{-- <td>{{ $pengajuan->User->cuti_th_sisa }} Hari</td> --}}
                                                 <td>
                                                     @if( $pengajuan->status == 'diajukan' )
                                                     <span class="badge badge-warning">Diajukan</span>

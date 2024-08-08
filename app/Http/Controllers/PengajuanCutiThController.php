@@ -38,9 +38,6 @@ class PengajuanCutiThController extends Controller
         return back();
     }
 
-    $user->cuti_th_sisa -= $jumlah_hari;
-    $user->save();
-
     $data = PengajuanCutiTh::create([
         'user_id' => $user->id,
         'tanggal_mulai' => $request->tanggal_mulai,
@@ -56,7 +53,7 @@ class PengajuanCutiThController extends Controller
         toast('Gagal', 'error');
     }
     return redirect()->route('status.cutith');
-
 }
+
 
 }

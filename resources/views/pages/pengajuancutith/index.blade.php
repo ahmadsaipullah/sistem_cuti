@@ -41,7 +41,7 @@
                                             <th>Tanggal Mulai</th>
                                             <th>Tanggal Selesai</th>
                                             <th>Jumlah Hari</th>
-                                            <th>Sisa Cuti Tahunan</th>
+                                            {{-- <th>Sisa Cuti Tahunan</th> --}}
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -54,7 +54,7 @@
                                                 <td>{{ \Carbon\Carbon::parse($pengajuan->tanggal_mulai)->format('d F Y') }}</td>
                                                 <td>{{ \Carbon\Carbon::parse($pengajuan->tanggal_selesai)->format('d F Y') }}</td>
                                                 <td>{{ $pengajuan->jumlah_hari }}</td>
-                                                <td>{{ $pengajuan->User->cuti_th_sisa }} Hari</td>
+                                                {{-- <td>{{ $pengajuan->User->cuti_th_sisa }} Hari</td> --}}
                                                 <td>
                                                     @if( $pengajuan->status == 'diajukan' )
                                                     <span class="badge badge-warning">Diajukan</span>
@@ -75,13 +75,13 @@
                                                             type="submit">Rejected</button>
                                                     </form>
 
-                                                    <form action="{{route('approve.th', $pengajuan->id)}}" method="post">
+                                                    <form action="{{ route('approve.th', $pengajuan->id) }}" method="post">
                                                         @csrf
-                                                        <input name="status" id="status"
-                                                            type="hidden" value="disetujui">
-                                                            <button class="btn btn-xs  btn-success"
-                                                            type="submit">Approve</button>
+
+                                                        <input type="hidden" name="status" value="disetujui">
+                                                        <button class="btn btn-xs btn-success" type="submit">Approve</button>
                                                     </form>
+
 
                                                   </div>
                                                 </td>

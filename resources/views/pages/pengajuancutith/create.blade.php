@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="jumlah_hari">Jumlah Hari:</label>
-                                        <input type="number" name="jumlah_hari" id="jumlah_hari" class="form-control" min="1" max="12" required>
+                                        <input type="number" name="jumlah_hari" id="jumlah_hari" class="form-control" min="1" max="12" required readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="keterangan">Keterangan:</label>
@@ -63,4 +63,28 @@
         </section>
         <!-- /.content -->
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tanggalMulai = document.getElementById('tanggal_mulai');
+            const tanggalSelesai = document.getElementById('tanggal_selesai');
+            const jumlahHari = document.getElementById('jumlah_hari');
+
+            function calculateDays() {
+                const startDate = new Date(tanggalMulai.value);
+                const endDate = new Date(tanggalSelesai.value);
+
+                if (startDate && endDate && endDate >= startDate) {
+                    const timeDifference = endDate - startDate;
+                    const dayDifference = timeDifference / (1000 * 3600 * 24) + 1; // Include both start and end date
+                    jumlahHari.value = dayDifference;
+                } else {
+                    jumlahHari.value = '';
+                }
+            }
+
+            tanggalMulai.addEventListener('change', calculateDays);
+            tanggalSelesai.addEventListener('change', calculateDays);
+        });
+    </script>
 @endsection

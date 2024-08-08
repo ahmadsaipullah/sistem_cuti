@@ -21,20 +21,47 @@ class statusController extends Controller
 
     // approve
     public function ApproveTh(Request $request, $id)
-
     {
-        $data       = array();
-        $data['status']   = $request->status;
+        $pengajuan = PengajuanCutiTh::find($id);
 
-        PengajuanCutiTh::where('id', $id)->update($data);
+        if (!$pengajuan) {
+            toast('Pengajuan tidak ditemukan', 'error');
+            return back();
+        }
 
-        if ($data) {
+        $user = $pengajuan->user;
+        $status = $request->input('status'); // Mengambil status dari input
+
+        // Jika status diubah menjadi disetujui
+        if ($status == 'disetujui') {
+            // Periksa apakah pengguna memiliki cukup sisa cuti
+            if ($pengajuan->jumlah_hari > $user->cuti_th_sisa) {
+                toast('Jumlah hari cuti tahunan melebihi sisa cuti', 'error');
+                return back();
+            }
+
+            // Kurangi sisa cuti tahunan pengguna
+            $user->cuti_th_sisa -= $pengajuan->jumlah_hari;
+            $user->save(); // Simpan perubahan sisa cuti
+        }
+
+        // Perbarui status pengajuan
+        $pengajuan->status = $status;
+        $pengajuan->save();
+
+        // Tampilkan pesan berdasarkan hasil update
+        if ($pengajuan->wasChanged()) {
             toast('Approve Berhasil', 'success');
         } else {
             toast('Gagal Terjadi Kesalahan', 'error');
         }
+
         return back();
     }
+
+
+
+
 //rejected
     public function RejectedTh(Request $request, $id)
 
